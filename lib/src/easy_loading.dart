@@ -224,8 +224,8 @@ class EasyLoading {
     animationDuration = const Duration(milliseconds: 200);
     textPadding = const EdgeInsets.only(bottom: 10.0);
     contentPadding = const EdgeInsets.symmetric(
-      vertical: 15.0,
-      horizontal: 20.0,
+      vertical: 8.0,
+      horizontal: 12.0,
     );
   }
 
@@ -291,6 +291,7 @@ class EasyLoading {
         status: status,
         maskType: maskType,
         dismissOnTap: false,
+        toastPosition: EasyLoadingToastPosition.top,
         w: w,
       );
       _instance._progressKey = _progressKey;

@@ -73,9 +73,8 @@ class EasyLoadingContainerState extends State<EasyLoadingContainer>
     super.initState();
     if (!mounted) return;
     _status = widget.status;
-    _alignment = (widget.indicator == null && widget.status?.isNotEmpty == true)
-        ? EasyLoadingTheme.alignment(widget.toastPosition)
-        : AlignmentDirectional.center;
+    _alignment = EasyLoadingTheme.alignment(widget.toastPosition);
+
     _dismissOnTap =
         widget.dismissOnTap ?? (EasyLoadingTheme.dismissOnTap ?? false);
     _ignoring =
@@ -195,11 +194,15 @@ class _Indicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(50.0),
+      margin: const EdgeInsets.all(64.0),
       decoration: BoxDecoration(
         color: EasyLoadingTheme.backgroundColor,
         borderRadius: BorderRadius.circular(
           EasyLoadingTheme.radius,
+        ),
+        border: Border.all(
+          width: 2,
+          color: Theme.of(context).primaryColor,
         ),
         boxShadow: EasyLoadingTheme.boxShadow,
       ),
@@ -209,13 +212,13 @@ class _Indicator extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          if (indicator != null)
-            Container(
-              margin: status?.isNotEmpty == true
-                  ? EasyLoadingTheme.textPadding
-                  : EdgeInsets.zero,
-              child: indicator,
-            ),
+          // if (indicator != null) indicator,
+          // Container(
+          //   margin: status?.isNotEmpty == true
+          //       ? EasyLoadingTheme.textPadding
+          //       : EdgeInsets.zero,
+          //   child: indicator,
+          // ),
           if (status != null)
             Text(
               status!,
