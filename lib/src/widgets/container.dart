@@ -25,8 +25,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-import '../theme.dart';
 import '../easy_loading.dart';
+import '../theme.dart';
 
 //https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0
 T? _ambiguate<T>(T? value) => value;
@@ -212,13 +212,13 @@ class _Indicator extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          // if (indicator != null) indicator,
-          // Container(
-          //   margin: status?.isNotEmpty == true
-          //       ? EasyLoadingTheme.textPadding
-          //       : EdgeInsets.zero,
-          //   child: indicator,
-          // ),
+          if (indicator != null)
+            Container(
+              margin: status?.isNotEmpty == true
+                  ? EasyLoadingTheme.textPadding
+                  : EdgeInsets.zero,
+              child: indicator,
+            ),
           if (status != null)
             Text(
               status!,
